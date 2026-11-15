@@ -16,7 +16,7 @@ var financeDbContainer = builder.AddPostgres("financeDb",financeDbUsername,finan
 var financeDb = financeDbContainer.AddDatabase("AirlineAdmin");
 
 
-var financeApi = builder.AddProject<Projects.AirlineAdmin_FinanceAPI>("financeApi")
+var financeApi = builder.AddProject<Projects.AirlineAdmin_Finance_API>("financeApi")
     .WithReference(financeDb)
     .WaitFor(financeDb)
     .WithHttpHealthCheck("/health");

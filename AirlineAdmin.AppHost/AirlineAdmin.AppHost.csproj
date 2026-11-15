@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AirlineAdmin.FinanceAPI\AirlineAdmin.FinanceAPI.csproj" />
+    <ProjectReference Include="..\AirlineAdmin.Finance.API\AirlineAdmin.Finance.API.csproj" />
   </ItemGroup>
 
   <ItemGroup>
