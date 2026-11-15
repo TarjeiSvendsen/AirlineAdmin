@@ -18,10 +18,9 @@ var financeDb = financeDbContainer.AddDatabase("AirlineAdmin");
 
 var financeApi = builder.AddProject<Projects.AirlineAdmin_Finance_API>("financeApi")
     .WithReference(financeDb)
-    .WaitFor(financeDb)
-    .WithHttpHealthCheck("/health");
+    .WaitFor(financeDb);
 
-
+var userApi = builder.AddProject<Projects.AirlineAdmin_User_API>("userApi");
 
 
 builder.Build().Run();

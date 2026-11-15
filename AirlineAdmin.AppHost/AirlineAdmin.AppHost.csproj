@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AirlineAdmin.Finance.API\AirlineAdmin.Finance.API.csproj" />
+    <ProjectReference Include="..\AirlineAdmin.User.API\AirlineAdmin.User.API.csproj" />
   </ItemGroup>
 
   <ItemGroup>
