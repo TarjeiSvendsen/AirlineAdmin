@@ -5,6 +5,8 @@ builder.AddServiceDefaults();
 
 builder.Services.AddProblemDetails();
 
+builder.Services.AddControllers();
+
 
 var app = builder.Build();
 

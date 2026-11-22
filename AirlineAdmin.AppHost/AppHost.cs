@@ -11,9 +11,8 @@ var garnetCache = builder.AddGarnet("garnetCache")
 var financeDbUsername = builder.AddParameter("financeDbUsername", true);
 var financeDbPassword = builder.AddParameter("financeDbPassword", true);
 
-var financeDbContainer = builder.AddPostgres("financeDb",financeDbUsername,financeDbPassword)
+var financeDb = builder.AddPostgres("financeDb",financeDbUsername,financeDbPassword)
     .WithDataVolume();
-var financeDb = financeDbContainer.AddDatabase("AirlineAdmin");
 
 
 var financeApi = builder.AddProject<Projects.AirlineAdmin_Finance_API>("financeApi")
@@ -25,9 +24,8 @@ var financeApi = builder.AddProject<Projects.AirlineAdmin_Finance_API>("financeA
     .WaitFor(messaging);
 
 
-var userDbContainer = builder.AddMongoDB("financeDb")
+var userDb = builder.AddMongoDB("userDb")
     .WithDataVolume();
-var userDb = userDbContainer.AddDatabase("AirlineAdmin");
 
 
 var userApi = builder.AddProject<Projects.AirlineAdmin_User_API>("userApi")
