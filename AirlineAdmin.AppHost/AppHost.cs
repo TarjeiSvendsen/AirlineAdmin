@@ -1,6 +1,7 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 
+
 var messaging = builder.AddKafka("messaging")
     .WithDataVolume();
 
@@ -31,6 +32,13 @@ var userDb = builder.AddMongoDB("userDb")
 var userApi = builder.AddProject<Projects.AirlineAdmin_User_API>("userApi")
     .WithReference(userDb)
     .WaitFor(userDb);
+
+var aircraftDb = builder.AddMongoDB("aircraftDb")
+    .WithDataVolume();
+
+var aircraftApi = builder.AddProject<Projects.AirlineAdmin_Aircraft_API>("aircraftApi")
+    .WithReference(aircraftDb)
+    .WaitFor(aircraftDb);
 
 
 builder.Build().Run();
