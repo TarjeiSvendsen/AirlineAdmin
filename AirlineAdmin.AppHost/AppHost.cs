@@ -25,7 +25,9 @@ var financeApi = builder.AddProject<Projects.AirlineAdmin_Finance_API>("financeA
     .WaitFor(messaging);
 
 
-var userDb = builder.AddMongoDB("userDb")
+var userDbUsername = builder.AddParameter("userDbUsername", true);
+var userDbPassword = builder.AddParameter("userDbPassword", true);
+var userDb = builder.AddPostgres("userDb",userDbUsername,userDbPassword)
     .WithDataVolume();
 
 
